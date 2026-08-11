@@ -1,0 +1,28 @@
+{
+  "appId": "com.sidera.app",
+  "productName": "Sidera",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "public/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "perMachine": false
+  },
+  "mac": {
+    "target": "dmg",
+    "icon": "public/icon.icns"
+  },
+  "linux": {
+    "target": "AppImage",
+    "icon": "public/icon.png"
+  }
+}

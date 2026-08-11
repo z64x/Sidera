@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "Example configuration for Smart App Resolution System",
+  "instructions": "Copy this file to your app's userData directory as 'app-resolver-config.json' and customize as needed",
+  
+  "confidenceThreshold": 0.8,
+  "ambiguousThreshold": 0.5,
+  "maxSuggestions": 5,
+  
+  "enabledStrategies": [
+    "app_registry",
+    "learning_system",
+    "fuzzy_matcher",
+    "windows_registry"
+  ],
+  
+  "customSearchDirs": [],
+  
+  "cacheConfig": {
+    "fuzzyMatchTTL": 86400000,
+    "registryTTL": 3600000,
+    "maxCacheSize": 1000
+  },
+  
+  "searchDirs": [
+    "C:\\Program Files",
+    "C:\\Program Files (x86)",
+    "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs",
+    "%LOCALAPPDATA%\\Programs"
+  ],
+  
+  "_comments": {
+    "confidenceThreshold": "Minimum confidence (0-1) for automatic launch. Higher = more strict. Default: 0.8",
+    "ambiguousThreshold": "Minimum confidence to include in suggestions. Default: 0.5",
+    "maxSuggestions": "Maximum number of suggestions to return for ambiguous results. Default: 5",
+    "enabledStrategies": "Which resolution strategies to use. Remove strategies you don't need for better performance",
+    "customSearchDirs": "Additional directories to search for applications. Add your custom app folders here",
+    "cacheConfig.fuzzyMatchTTL": "How long to cache fuzzy search results (milliseconds). Default: 86400000 (24 hours)",
+    "cacheConfig.registryTTL": "How long to cache Windows Registry results (milliseconds). Default: 3600000 (1 hour)",
+    "cacheConfig.maxCacheSize": "Maximum number of entries in cache. Default: 1000",
+    "searchDirs": "Standard directories to search for applications. Environment variables are expanded"
+  },
+  
+  "presets": {
+    "fast": {
+      "description": "Optimized for speed - only exact matches",
+      "enabledStrategies": ["app_registry", "learning_system"],
+      "confidenceThreshold": 0.8
+    },
+    "thorough": {
+      "description": "Optimized for finding apps - all strategies enabled",
+      "enabledStrategies": ["app_registry", "learning_system", "fuzzy_matcher", "windows_registry"],
+      "confidenceThreshold": 0.7,
+      "ambiguousThreshold": 0.4
+    },
+    "strict": {
+      "description": "Only high-confidence matches",
+      "enabledStrategies": ["app_registry", "learning_system", "fuzzy_matcher", "windows_registry"],
+      "confidenceThreshold": 0.9,
+      "ambiguousThreshold": 0.8
+    },
+    "learning-only": {
+      "description": "Rely on learned mappings and registry",
+      "enabledStrategies": ["app_registry", "learning_system"],
+      "confidenceThreshold": 0.7
+    }
+  },
+  
+  "examples": {
+    "portable-apps": {
+      "description": "Configuration for users with portable apps on USB drives",
+      "customSearchDirs": [
+        "D:\\PortableApps",
+        "E:\\PortableApps",
+        "F:\\PortableApps"
+      ]
+    },
+    "developer": {
+      "description": "Configuration for developers with tools in custom locations",
+      "customSearchDirs": [
+        "C:\\Dev\\Tools",
+        "C:\\SDK",
+        "D:\\Development"
+      ],
+      "searchDirs": [
+        "C:\\Program Files",
+        "C:\\Program Files (x86)",
+        "%LOCALAPPDATA%\\Programs",
+        "C:\\Dev\\Tools"
+      ]
+    },
+    "gamer": {
+      "description": "Configuration for gamers with games on multiple drives",
+      "customSearchDirs": [
+        "D:\\Games",
+        "E:\\SteamLibrary",
+        "F:\\EpicGames"
+      ]
+    },
+    "minimal": {
+      "description": "Minimal configuration for systems with limited resources",
+      "enabledStrategies": ["app_registry"],
+      "cacheConfig": {
+        "fuzzyMatchTTL": 0,
+        "registryTTL": 0,
+        "maxCacheSize": 100
+      }
+    }
+  }
+}

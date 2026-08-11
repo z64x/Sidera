@@ -1,0 +1,115 @@
+{
+  "version": "1.0.0",
+  "description": "Example custom application mappings for Smart App Resolution",
+  "instructions": "Copy entries to your app-registry.json or use as reference for adding custom applications",
+  "entries": {
+    "customapp": {
+      "aliases": [
+        "customapp",
+        "custom app",
+        "my app"
+      ],
+      "executablePath": "C:\\CustomApps\\MyApp\\app.exe",
+      "displayName": "Custom Application",
+      "addedAt": "2024-01-15T10:00:00Z",
+      "source": "predefined",
+      "usageCount": 0,
+      "lastUsed": "2024-01-15T10:00:00Z"
+    },
+    "portableapp": {
+      "aliases": [
+        "portableapp",
+        "portable",
+        "usb app"
+      ],
+      "executablePath": "D:\\PortableApps\\MyPortableApp\\app.exe",
+      "displayName": "Portable Application",
+      "addedAt": "2024-01-15T10:00:00Z",
+      "source": "predefined",
+      "usageCount": 0,
+      "lastUsed": "2024-01-15T10:00:00Z"
+    },
+    "gameapp": {
+      "aliases": [
+        "mygame",
+        "game",
+        "favorite game"
+      ],
+      "executablePath": "E:\\Games\\MyGame\\game.exe",
+      "displayName": "My Favorite Game",
+      "addedAt": "2024-01-15T10:00:00Z",
+      "source": "predefined",
+      "usageCount": 0,
+      "lastUsed": "2024-01-15T10:00:00Z"
+    },
+    "devtool": {
+      "aliases": [
+        "devtool",
+        "development tool",
+        "dev"
+      ],
+      "executablePath": "C:\\Tools\\DevTool\\devtool.exe",
+      "displayName": "Development Tool",
+      "addedAt": "2024-01-15T10:00:00Z",
+      "source": "predefined",
+      "usageCount": 0,
+      "lastUsed": "2024-01-15T10:00:00Z"
+    },
+    "legacy": {
+      "aliases": [
+        "legacy",
+        "old app",
+        "legacy system"
+      ],
+      "executablePath": "C:\\Program Files (x86)\\LegacyApp\\legacy.exe",
+      "displayName": "Legacy Application",
+      "addedAt": "2024-01-15T10:00:00Z",
+      "source": "predefined",
+      "usageCount": 0,
+      "lastUsed": "2024-01-15T10:00:00Z"
+    }
+  },
+  "notes": [
+    "All aliases are case-insensitive",
+    "Multiple aliases can point to the same executable",
+    "Paths must exist on the filesystem",
+    "Use forward slashes (/) or escaped backslashes (\\\\) in JSON",
+    "The 'source' field should be 'predefined' for manually added entries",
+    "The 'usageCount' and 'lastUsed' fields are updated automatically",
+    "Environment variables like %APPDATA% are not expanded - use full paths"
+  ],
+  "commonPaths": {
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFilesX86": "C:\\Program Files (x86)",
+    "LocalAppData": "%LOCALAPPDATA% (typically C:\\Users\\[Username]\\AppData\\Local)",
+    "AppData": "%APPDATA% (typically C:\\Users\\[Username]\\AppData\\Roaming)",
+    "UserProfile": "%USERPROFILE% (typically C:\\Users\\[Username])"
+  },
+  "examples": {
+    "webBrowser": {
+      "aliases": ["mybrowser", "browser"],
+      "executablePath": "C:\\Program Files\\MyBrowser\\browser.exe",
+      "displayName": "My Custom Browser"
+    },
+    "textEditor": {
+      "aliases": ["editor", "text editor", "edit"],
+      "executablePath": "C:\\Tools\\Editor\\editor.exe",
+      "displayName": "My Text Editor"
+    },
+    "databaseTool": {
+      "aliases": ["db", "database", "sql tool"],
+      "executablePath": "C:\\Program Files\\DatabaseTool\\dbtool.exe",
+      "displayName": "Database Management Tool"
+    },
+    "imageEditor": {
+      "aliases": ["photoshop", "ps", "image editor"],
+      "executablePath": "C:\\Program Files\\Adobe\\Photoshop\\Photoshop.exe",
+      "displayName": "Adobe Photoshop"
+    },
+    "videoEditor": {
+      "aliases": ["premiere", "video editor", "edit video"],
+      "executablePath": "C:\\Program Files\\Adobe\\Premiere Pro\\Adobe Premiere Pro.exe",
+      "displayName": "Adobe Premiere Pro"
+    }
+  }
+}
